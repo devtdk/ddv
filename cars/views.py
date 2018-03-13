@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from .serializers import UserSerializer, GroupSerializer
+from .serializers import UserSerializer, GroupSerializer, TypeSerializer
+from .models import Type
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -17,3 +18,11 @@ class GroupViewSet(viewsets.ModelViewSet):
     """
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
+
+
+class TypeViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows types to be viewed or edited.
+    """
+    queryset = Type.objects.all()
+    serializer_class = TypeSerializer
