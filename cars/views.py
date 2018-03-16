@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User, Group
+from django.views.generic.base import TemplateView
 from rest_framework import viewsets
 from .serializers import UserSerializer, GroupSerializer, TypeSerializer
 from .models import Type
@@ -26,3 +27,7 @@ class TypeViewSet(viewsets.ModelViewSet):
     """
     queryset = Type.objects.all()
     serializer_class = TypeSerializer
+
+
+class VueView(TemplateView):
+    template_name = "vue.html"
